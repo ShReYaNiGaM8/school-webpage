@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Management System</title>
+</head>
+<body>
+    <h1>Welcome to the School Management System</h1>
+    
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade"><br><br>
+        
+        <button type="submit">Add Student</button>
+    </form>
+    
+    <h2>Students:</h2>
+    <ul id="student-list">
+        <!-- Student details will be dynamically added here -->
+    </ul>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var nameInput = document.getElementById('name');
+            var gradeInput = document.getElementById('grade');
+            
+            var name = nameInput.value;
+            var grade = gradeInput.value;
+            
+            var studentList = document.getElementById('student-list');
+            var listItem = document.createElement('li');
+            listItem.textContent = 'Name: ' + name + ', Grade: ' + grade;
+            studentList.appendChild(listItem);
+            
+            nameInput.value = '';
+            gradeInput.value = '';
+        });
+    </script>
+</body>
+</html>
